@@ -72,7 +72,13 @@ module.exports = {
 🧧 *Prefix :* [ ${prefix} ]
                        
 📝 Here's the *Commands* listed below :\n\n`;
-     
+      const keys = Object.keys(category);
+      for (const key of keys) {
+        txt += `*${key.toUpperCase()} ${
+          emo[keys.indexOf(key)]
+        } :-*  \n\`\`\`${category[key]
+          .map((cmd) => cmd.name)
+          .join(", ")}\`\`\`\n\n`;
       }
       txt += `📗 Type *${prefix}help* <Command-Name> or <Command-Name> --info\n\n`;
       txt += `*©Eternity-Team*`
